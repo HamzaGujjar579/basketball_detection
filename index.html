@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/static/images/favicon.ico">
+  <link rel="shortcut icon" href="/static/images/favicon.ico">
+  
+
+  <title>AnomaLenz - AI Video Anomaly Detection</title>
+  
+  
+</head>
+<body>
+  <!-- Modern Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#" onclick="showHome()" aria-label="AnomaLenz Home">
+        <i class="bi bi-camera-video-fill"></i>
+        <span>AnomaLenz</span>
+      </a>
+      
+      <div class="navbar-nav d-flex flex-row gap-4">
+        <a class="nav-link active" href="#" onclick="showHome()">Home</a>
+        <a class="nav-link" href="#features" onclick="handleNavClick(event, 'features')">Features</a>
+        <a class="nav-link" href="#about" onclick="handleNavClick(event, 'about')">About</a>
+        <a class="nav-link" href="#faq" onclick="handleNavClick(event, 'faq')">FAQ</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Back Button -->
+  <a href="#" class="back-btn" id="backBtn" onclick="showHome()" style="display: none;" aria-label="Back to Home">
+    <i class="bi bi-arrow-left"></i>
+    <span>Back to Home</span>
+  </a>
+
+  <!-- Home Page -->
+  <div id="homePage" class="page-section active">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">AI-Powered Video Anomaly Detection</h1>
+        <p class="hero-subtitle">
+          Detect suspicious activities and unusual patterns in your videos using advanced machine learning algorithms
+        </p>
+        <div class="hero-buttons">
+          <a href="#" class="btn-primary" onclick="showProcessed()">
+            <i class="bi bi-gear-fill"></i>
+            <span>Process Video</span>
+          </a>
+          <a href="#" class="btn-secondary" onclick="showDemo()">
+            <i class="bi bi-play-circle-fill"></i>
+            <span>View Demo</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">What is Anomaly Detection?</h2>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="glass-card h-100">
+              <p class="text-white">Anomaly detection involves identifying patterns or events in data that do not conform to expected behavior.</p>
+              <p class="text-white">In video surveillance, anomaly detection refers to the use of advanced algorithms and AI to automatically detect unusual activities or behaviors that may indicate security threats, operational issues, or safety hazards.</p>
+              <p class="text-white">By using machine learning and advanced algorithms, anomaly detection systems can analyze vast amounts of video data in real-time, identifying anomalies that could go unnoticed by human observers.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Anomaly Detection" class="img-fluid" style="border-radius: 10px;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+      <div class="container">
+        <h2 class="section-title">Why Use Anomaly Detection?</h2>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="glass-card h-100">
+              <p class="text-white">Anomaly detection is used to detect unusual dangerous situations in public spaces or suspicious behavior by people and to stop dangerous situations from escalating further.</p>
+              <h4 class="text-white">Smarter Security</h4>
+              <p class="text-white">Improved Security - Automatically detects suspicious activities, ensuring quick response to potential threats.</p>
+              <h4 class="text-white">Lowering Costs</h4>
+              <p class="text-white">Reduces the need for constant human monitoring, freeing up resources and lowering operational costs.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Why Use Anomaly Detection" class="img-fluid" style="border-radius: 10px;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 d-flex flex-column align-items-center">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Video File Size" class="img-fluid rounded mb-3" style="width: 70px; height: 70px; margin-top: 120px;">
+            <h4 class="text-center text-white">How to Detect Anomaly online</h4>
+            <p class="text-center text-white">Need help? <a href="#" class="text-primary">Visit our Help Center</a></p>
+          </div>
+          <div class="col-lg-8">
+            <div class="modern-accordion">
+              <div class="modern-accordion-item" style="margin-top: 100px;">
+                <button class="modern-accordion-button" onclick="toggleAccordion(this)">
+                  <span class="step-label" style="color: white; font-size: 0.9rem; font-weight: 700; padding: 5px 10px; border-radius: 5px; margin-right: 10px; display: inline-block; text-transform: uppercase;">Step 1:</span>
+                  Upload a video
+                  <i class="bi bi-chevron-down ms-auto"></i>
+                </button>
+                <div class="modern-accordion-body">
+                  <p>Choose a file up to 500 MB for free from any of your devices: Android, iPhone, Mac, Windows.</p>
+                </div>
+              </div>
+              
+              <div class="modern-accordion-item">
+                <button class="modern-accordion-button" onclick="toggleAccordion(this)">
+                  <span class="step-label" style="color: white; font-size: 0.9rem; font-weight: 700; padding: 5px 10px; border-radius: 5px; margin-right: 10px; display: inline-block; text-transform: uppercase;">Step 2:</span>
+                  Detect Anomaly
+                  <i class="bi bi-chevron-down ms-auto"></i>
+                </button>
+                <div class="modern-accordion-body">
+                  <p>Select the anomaly detection preset and wait a few moments while the tool analyzes your video for unusual activities.</p>
+                  <p><strong>Online Tool:</strong> This tool is entirely online, so there's no need to download or install anything. Upload your videos securely, and let the system detect anomalies with ease, all from your browser.</p>
+                </div>
+              </div>
+              
+              <div class="modern-accordion-item">
+                <button class="modern-accordion-button" onclick="toggleAccordion(this)">
+                  <span class="step-label" style="color: white; font-size: 0.9rem; font-weight: 700; padding: 5px 10px; border-radius: 5px; margin-right: 10px; display: inline-block; text-transform: uppercase;">Step 3:</span>
+                  Save the result
+                  <i class="bi bi-chevron-down ms-auto"></i>
+                </button>
+                <div class="modern-accordion-body">
+                  <p>Watch the preview to make sure everything is okay. If it's so, download the video back to your device.</p>
+                  <p><strong>Check Preview:</strong> You can first see the preview of your file and only then save it back to your device.</p>
+                </div>
+              </div>
+              
+              <div class="modern-accordion-item">
+                <button class="modern-accordion-button" onclick="toggleAccordion(this)">
+                  <span class="step-label" style="color: white; font-size: 0.9rem; font-weight: 700; padding: 5px 10px; border-radius: 5px; margin-right: 10px; display: inline-block; text-transform: uppercase;">Step 4:</span>
+                  Enjoy a Simple Interface
+                  <i class="bi bi-chevron-down ms-auto"></i>
+                </button>
+                <div class="modern-accordion-body">
+                  <p><strong>Simple Interface:</strong> Don't worry, the tool is really intuitive, you don't even need to read a manual to use it!</p>
+                </div>
+              </div>
+              
+              <div class="modern-accordion-item">
+                <button class="modern-accordion-button" onclick="toggleAccordion(this)">
+                  <span class="step-label" style="color: white; font-size: 0.9rem; font-weight: 700; padding: 5px 10px; border-radius: 5px; margin-right: 10px; display: inline-block; text-transform: uppercase;">Step 5:</span>
+                  Format Compatibility
+                  <i class="bi bi-chevron-down ms-auto"></i>
+                </button>
+                <div class="modern-accordion-body">
+                  <p><strong>Supports Any Format:</strong> Anomalenz works with any popular format like MP4, WMV, MOV, VOB, AVI, and with more rare ones as well.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Video Section -->
+    <section class="section">
+      <div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="text-center mb-4">
+          <h2 class="section-title" style="font-weight: bold; color: white;">Detect Video Anomaly</h2>
+          <p class="section-subtitle" style="font-size: 1.1rem; color: white;">Try our online tool video Anomaly detection</p>
+        </div>
+        <div class="video-player">
+          <video width="800" autoplay muted loop>
+            <source src="/static/videos/GoldenEye.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Ready to Detect Section -->
+    <section class="section">
+      <div class="container d-flex justify-content-center align-items-center" style="min-height: 15vh;">
+        <div class="text-center">
+          <h2 class="text-white">Ready to Detect your video?</h2>
+          <p class="text-white">Let's do it with our online Video Anomaly Detection!</p>
+          <a href="#" class="btn-primary mt-3" onclick="showProcessed()">
+            <span>Detect Anomaly</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <h5 class="text-gradient">About AnomaLenz</h5>
+            <p>
+              Leading the future of video analysis with cutting-edge AI technology. Our platform provides reliable, accurate, and fast anomaly detection for security and surveillance applications.
+            </p>
+          </div>
+          <div class="col-md-4">
+                         <h5 class="text-gradient">Quick Links</h5>
+             <ul class="list-unstyled">
+               <li><a href="#" class="text-decoration-none" onclick="showHome()">Home</a></li>
+               <li><a href="#features" class="text-decoration-none" onclick="handleNavClick(event, 'features')">Features</a></li>
+               <li><a href="#about" class="text-decoration-none" onclick="handleNavClick(event, 'about')">About</a></li>
+               <li><a href="#faq" class="text-decoration-none" onclick="handleNavClick(event, 'faq')">FAQ</a></li>
+             </ul>
+          </div>
+          <div class="col-md-4">
+            <h5 class="text-gradient">Contact Info</h5>
+            <p><i class="bi bi-geo-alt-fill me-2"></i>123 Tech Street, Innovation City</p>
+            <p><i class="bi bi-envelope-fill me-2"></i>hello@anomalenz.com</p>
+            <p><i class="bi bi-phone-fill me-2"></i>+1 (555) 123-4567</p>
+          </div>
+        </div>
+        <hr class="border-secondary mt-4" />
+        <div class="text-center py-3">
+          <p class="mb-0">&copy; 2025 AnomaLenz. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Processed Page -->
+  <div id="processedPage" class="page-section separate-page">
+    <div class="container">
+      <div class="section text-center">
+        <h1 class="hero-title">Process Your Video</h1>
+        <p class="hero-subtitle">
+          Upload your video for real-time anomaly detection analysis
+        </p>
+        
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="upload-area" id="uploadArea" onclick="document.getElementById('videoUploadProcessed').click()">
+              <div class="upload-icon">
+                <i class="bi bi-cloud-upload"></i>
+              </div>
+              <div class="upload-text">Choose Video File</div>
+              <div class="upload-subtext">Drag & drop or click to upload (Max 500MB)</div>
+              <input type="file" id="videoUploadProcessed" accept="video/*" style="display: none;">
+            </div>
+            <div class="mt-3">
+                              <small id="fileNameProcessed" class="text-white">No file selected</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Page -->
+  <div id="demoPage" class="page-section separate-page">
+    <div class="container">
+      <div class="section text-center">
+        <h1 class="hero-title">Demo Mode</h1>
+        <p class="hero-subtitle">
+          Upload any video to see our pre-processed anomaly detection results
+        </p>
+        
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="upload-area" onclick="document.getElementById('videoUploadDemo').click()">
+              <div class="upload-icon">
+                <i class="bi bi-play-circle"></i>
+              </div>
+              <div class="upload-text">Choose Video for Demo</div>
+              <div class="upload-subtext">See instant results with our pre-processed samples</div>
+              <input type="file" id="videoUploadDemo" accept="video/*" style="display: none;">
+            </div>
+            <div class="mt-3">
+                              <small id="fileNameDemo" class="text-white">No file selected</small>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Demo Result -->
+        <div class="demo-result" id="demoResult" style="display: none;">
+          <div class="section">
+            <h2 class="section-title">
+              <i class="bi bi-search me-2"></i>
+              Anomaly Detection Results
+            </h2>
+            
+            <div class="row justify-content-center">
+              <div class="col-lg-12">
+                <div class="d-flex justify-content-center">
+                  <div class="video-player">
+                    <video id="demoVideo" controls width="900" autoplay loop>
+                      <source src="/static/output/GoldenEye.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress Overlay -->
+  <div id="progressOverlay" class="progress-overlay">
+    <div class="progress-card">
+      <div class="progress-title">
+        <i class="bi bi-gear-fill me-2"></i>
+        Processing Video...
+      </div>
+      <p class="text-white mb-3">
+        Analyzing your video for anomalies using advanced AI algorithms
+      </p>
+      <div class="progress-bar-container">
+        <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+      </div>
+      <div class="d-flex justify-content-between mt-2">
+        <small id="progressText" class="text-white">0%</small>
+        <small id="timeRemaining" class="text-white">Calculating...</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="modal fade" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content bg-dark">
+        <div class="modal-header border-0">
+          <h5 class="modal-title text-white" id="videoModalLabel">Processed Video</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex justify-content-center">
+          <div class="video-player">
+            <video id="uploadedVideo" controls width="900" autoplay>
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <div class="modal-footer border-0">
+          <a id="downloadBtn" class="btn btn-success" download>
+            <i class="bi bi-download me-2"></i>
+            Download Processed Video
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+         // Update navigation active state
+     function updateNavActive(activeNavId) {
+       document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+       
+       if (activeNavId === 'home') {
+         const homeNav = document.querySelector('.nav-link[onclick="showHome()"]');
+         if (homeNav) homeNav.classList.add('active');
+       } else {
+         const activeNav = document.querySelector(`.nav-link[href="#${activeNavId}"]`);
+         if (activeNav) activeNav.classList.add('active');
+       }
+     }
+
+     // Page navigation
+     function showHome() {
+       document.getElementById('homePage').classList.add('active');
+       document.getElementById('processedPage').classList.remove('active');
+       document.getElementById('demoPage').classList.remove('active');
+       document.getElementById('backBtn').style.display = 'none';
+       document.getElementById('demoResult').style.display = 'none';
+       
+       // Update nav active state
+       updateNavActive('home');
+       
+       // Scroll to top of page
+       window.scrollTo({
+         top: 0,
+         behavior: 'smooth'
+       });
+     }
+
+     function showProcessed() {
+       document.getElementById('homePage').classList.remove('active');
+       document.getElementById('processedPage').classList.add('active');
+       document.getElementById('demoPage').classList.remove('active');
+       document.getElementById('backBtn').style.display = 'block';
+       
+       // Update nav active state
+       updateNavActive('home');
+     }
+
+     function showDemo() {
+       document.getElementById('homePage').classList.remove('active');
+       document.getElementById('processedPage').classList.remove('active');
+       document.getElementById('demoPage').classList.add('active');
+       document.getElementById('backBtn').style.display = 'block';
+       document.getElementById('demoResult').style.display = 'none';
+       
+       // Update nav active state
+       updateNavActive('home');
+     }
+
+     // Handle navigation clicks
+     function handleNavClick(event, targetSection) {
+       event.preventDefault();
+       
+       // Update active state
+       updateNavActive(targetSection);
+       
+       // Scroll to section if on home page
+       if (document.getElementById('homePage').classList.contains('active')) {
+         const target = document.querySelector(`#${targetSection}`);
+         if (target) {
+           target.scrollIntoView({ behavior: 'smooth' });
+         }
+       } else {
+         // If not on home page, go to home first then scroll
+         showHome();
+         setTimeout(() => {
+           const target = document.querySelector(`#${targetSection}`);
+           if (target) {
+             target.scrollIntoView({ behavior: 'smooth' });
+           }
+         }, 100);
+       }
+     }
+
+    // Accordion functionality
+    function toggleAccordion(button) {
+      const body = button.nextElementSibling;
+      const icon = button.querySelector('.bi-chevron-down');
+      
+      // Close all other accordion items
+      document.querySelectorAll('.modern-accordion-body').forEach(item => {
+        if (item !== body) {
+          item.classList.remove('active');
+        }
+      });
+      
+      document.querySelectorAll('.bi-chevron-down').forEach(item => {
+        if (item !== icon) {
+          item.style.transform = 'rotate(0deg)';
+        }
+      });
+      
+      // Toggle current item
+      body.classList.toggle('active');
+      icon.style.transform = body.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+
+    // File upload handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const processedUpload = document.getElementById('videoUploadProcessed');
+      const demoUpload = document.getElementById('videoUploadDemo');
+      const progressOverlay = document.getElementById('progressOverlay');
+      const progressBar = document.getElementById('progressBar');
+      const progressText = document.getElementById('progressText');
+      const timeRemaining = document.getElementById('timeRemaining');
+      const videoModal = new bootstrap.Modal(document.getElementById('videoModal'));
+      const uploadedVideo = document.getElementById('uploadedVideo');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const demoResult = document.getElementById('demoResult');
+      const demoVideo = document.getElementById('demoVideo');
+      
+      // Global variables for tracking current processing
+      let currentTaskId = null;
+      let progressInterval = null;
+
+      // Processed upload
+      processedUpload.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+          document.getElementById('fileNameProcessed').textContent = file.name;
+          processVideo(file);
+        }
+      });
+
+      // Demo upload
+      demoUpload.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+          document.getElementById('fileNameDemo').textContent = file.name;
+          
+          // Update demo video source
+          const outputPath = `static/output/${file.name}`;
+          demoVideo.src = outputPath;
+          
+          // Show demo result
+          setTimeout(() => {
+            demoResult.style.display = 'block';
+            demoResult.scrollIntoView({ behavior: 'smooth' });
+          }, 1000);
+        }
+      });
+
+      // Process video function with real backend integration
+      async function processVideo(file) {
+        try {
+          progressOverlay.style.display = 'flex';
+          progressBar.style.width = '0%';
+          progressText.textContent = '0%';
+          timeRemaining.textContent = 'Starting upload...';
+          
+          // Create FormData for file upload
+          const formData = new FormData();
+          formData.append('video', file);
+          
+          // Upload file to backend
+          const uploadResponse = await fetch('/api/upload', {
+            method: 'POST',
+            body: formData
+          });
+          
+          if (!uploadResponse.ok) {
+            const errorData = await uploadResponse.json();
+            throw new Error(errorData.error || 'Upload failed');
+          }
+          
+          const uploadData = await uploadResponse.json();
+          currentTaskId = uploadData.task_id;
+          
+          // Start monitoring progress
+          monitorProgress();
+          
+        } catch (error) {
+          console.error('Error processing video:', error);
+          progressOverlay.style.display = 'none';
+          alert('Error processing video: ' + error.message);
+        }
+      }
+      
+      // Monitor processing progress
+      function monitorProgress() {
+        if (!currentTaskId) return;
+        
+        progressInterval = setInterval(async () => {
+          try {
+            const response = await fetch(`/api/progress/${currentTaskId}`);
+            if (!response.ok) {
+              throw new Error('Failed to get progress');
+            }
+            
+            const data = await response.json();
+            
+            // Update progress bar
+            progressBar.style.width = `${data.progress}%`;
+            progressText.textContent = `${Math.round(data.progress)}%`;
+            timeRemaining.textContent = data.message;
+            
+            if (data.status === 'completed') {
+              clearInterval(progressInterval);
+              progressInterval = null;
+              
+              // Show completion message
+              timeRemaining.textContent = 'Processing complete!';
+              
+              // Set up download
+              downloadBtn.onclick = () => downloadProcessedVideo(currentTaskId);
+              downloadBtn.removeAttribute('href');
+              downloadBtn.removeAttribute('download');
+              
+              // Show video modal with processed video
+              setTimeout(async () => {
+
+                try {
+                    const response = await fetch(`/api/download/${currentTaskId}`);
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.error || 'Download failed');
+                    }
+                    
+                    // Create blob from response
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    uploadedVideo.src = url;
+                    
+                    
+                    } catch (error) {
+                    console.error('Error downloading video:', error);
+                    alert('Error downloading video: ' + error.message);
+                    }
+                    
+                progressOverlay.style.display = 'none';
+                videoModal.show();
+              }, 1000);
+              
+            } else if (data.status === 'error') {
+              clearInterval(progressInterval);
+              progressInterval = null;
+              progressOverlay.style.display = 'none';
+              alert('Processing failed: ' + (data.error || 'Unknown error'));
+            }
+            
+          } catch (error) {
+            console.error('Error monitoring progress:', error);
+            clearInterval(progressInterval);
+            progressInterval = null;
+            progressOverlay.style.display = 'none';
+            alert('Error monitoring progress: ' + error.message);
+          }
+        }, 2000); // Check every 2 seconds
+      }
+      
+      // Download processed video
+      async function downloadProcessedVideo(taskId) {
+        try {
+          const response = await fetch(`/api/download/${taskId}`);
+          if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Download failed');
+          }
+          
+          // Create blob from response
+          const blob = await response.blob();
+          const url = window.URL.createObjectURL(blob);
+          
+          // Create temporary download link
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `processed_${processedUpload.files[0]?.name || 'video.mp4'}`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          
+          // Clean up
+          window.URL.revokeObjectURL(url);
+          
+        } catch (error) {
+          console.error('Error downloading video:', error);
+          alert('Error downloading video: ' + error.message);
+        }
+      }
+      
+      // Clean up intervals when page is unloaded
+      window.addEventListener('beforeunload', () => {
+        if (progressInterval) {
+          clearInterval(progressInterval);
+        }
+      });
+      
+      // Check backend status on page load
+      checkBackendStatus();
+      
+      async function checkBackendStatus() {
+        try {
+          const response = await fetch('/api/status');
+          if (response.ok) {
+            const data = await response.json();
+            console.log('Backend status:', data);
+          }
+        } catch (error) {
+          console.warn('Backend not available:', error);
+        }
+      }
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const href = this.getAttribute('href');
+          // Only process if href is not just "#" and is a valid selector
+          if (href && href !== '#' && href.length > 1) {
+            const target = document.querySelector(href);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
